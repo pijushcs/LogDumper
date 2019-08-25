@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="org.codehaus.jackson:jackson-jaxrs:1.9.0" type="repository">
+    <properties maven-id="org.codehaus.jackson:jackson-jaxrs:RELEASE" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/jackson-jaxrs-1.9.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-core-asl-1.9.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-mapper-asl-1.9.11.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/jackson-jaxrs-1.9.11-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-core-asl-1.9.11-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-mapper-asl-1.9.11-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
