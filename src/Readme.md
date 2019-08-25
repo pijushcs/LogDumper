@@ -6,13 +6,15 @@ The LogDumper supports multiple application clients to log messages that are to 
 ---
 
 #### `Some Design Notes`:
-> While generating the raw user logs, rach client log file is locked with an exclusive lock using FileLock and processed. The JSON translation happens after the lock is released to have the clients get access to the log file. 
+> While listing the raw user logs, each client log file is locked with an exclusive lock using FileLock and processed. The JSON translation happens after the lock is released to have the clients get access to the log file. 
 >> <b>Note:</b> The client applications are not blocked due to the exclusive lock as the LogDumperLib provides asynchronous logging.
 
 > Exceptions are modelled to have the upstream calls handle the excetions and accordings throws the exception. Custom exceptions may be added for better error reporting.
 >> <b>Note:</b> Care has been taken to ensure that no user log data is lost during an error or graceful exit
 
 > The user raw logs are validated and modelled to a class DumperLog that is used by Jackson to create the JSON
+
+> The default processors/translators have been provided as a signleton that can be created using a factory method from the utility class (Check below section).
 
 ---
 
