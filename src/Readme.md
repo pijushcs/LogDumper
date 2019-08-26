@@ -1,5 +1,5 @@
 #### `LogDumper Application:`
-The LogDumper supports multiple application clients to log messages that are to be dumped to the server. The dumper application checks the logs of all the running applications that are registered to it, converts it to JSON and sends them to the server.
+LogDumper is the main background application that supports multiple clients apps to log messages that are to be dumped to the server. The dumper application checks the logs of all the running applications that are registered to it, converts it to JSON and sends them to the server.
 
 <b>Usage:</b> java -jar LogDumper.jar [server-host-name] [server-port]
 
