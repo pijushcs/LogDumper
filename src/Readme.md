@@ -7,10 +7,10 @@ LogDumper is the main background application that supports multiple clients apps
 
 #### `Some Design Notes`:
 > While listing the raw user logs, each client log file is locked with an exclusive lock using FileLock and processed. The JSON translation happens after the lock is released to have the clients get access to the log file. 
->> <b>Note:</b> The client applications are not blocked due to the exclusive lock as the LogDumperLib provides asynchronous logging.
+>> <b>Note:</b> The client applications are not blocked due to the exclusive lock as the LogDumperLib library used by clients provides asynchronous logging by default.
 
 > Exceptions are modelled to have the upstream calls handle the excetions and accordings throws the exception. Custom exceptions may be added for better error reporting.
->> <b>Note:</b> Care has been taken to ensure that no user log data is lost during an error or graceful exit
+>> <b>Note:</b> Care has been taken to ensure that no user log data is lost during an error during graceful exit.
 
 > The user raw logs are validated and modelled to a class DumperLog that is used by Jackson to create the JSON
 
@@ -38,10 +38,10 @@ Interface for the seting up the server connection (TCP/UDP etc)
 Default implementation of the processor. The main task of the processor is to lock client logs for processing and add it to a log-list and return the list of raw user log. 
 
 > <b>JsonTranslatorImpl:</b>   
-The main taks of the JSON implementation of the translator is to form a JSON from the raw user log.
+The JSON Translator implementation for LogTranslator. The main task of the translator is to form a JSON from the raw user log.
 
 > <b>DefaultLogConnection:</b>   
-Implemention of the TCP Connection to ther Dumper Server/
+Implemention of the TCP Connection to the Dumper Server
 
 > <b>DumperLog:</b>  
 Representation of the user log used by <i>Jackson</i> for JSON translation.
@@ -51,6 +51,6 @@ Representation of the user log used by <i>Jackson</i> for JSON translation.
 The class has a few Constants and Enums
 
 > <b>DumperLogHelper</b>   
-Most of the frequest helper methods are defined here
+Most of the frequest helper/factory methods and are defined here
 
 ---
