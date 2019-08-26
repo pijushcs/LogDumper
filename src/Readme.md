@@ -6,7 +6,7 @@ LogDumper is the main background application that supports multiple clients apps
 ---
 
 #### `Some Design Notes`:
-> While listing the raw user logs, each client log file is locked with an exclusive lock using FileLock and processed. The JSON translation happens after the lock is released to have the clients get access to the log file. 
+> Each client writes to a separate log file to scale well. While listing the raw user logs, each client log file is locked with an exclusive lock using FileLock and processed. The JSON translation happens after the lock is released to have the clients get access to the log file. 
 >> <b>Note:</b> The client applications are not blocked due to the exclusive lock as the LogDumperLib library used by clients provides asynchronous logging by default.
 
 > Exceptions are modelled to have the upstream calls handle the excetions and accordings throws the exception. Custom exceptions may be added for better error reporting.
